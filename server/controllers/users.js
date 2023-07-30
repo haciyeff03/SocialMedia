@@ -1,4 +1,4 @@
-import User from "../models/User.js";
+const User = require('../models/User.js');
 
 
 
@@ -11,8 +11,8 @@ export const getUser = async (req, res) => {
 
 
     }
-    catch (error) {
-        res.status(404).json({ message: error.message });
+    catch (err) {
+        res.status(404).json({ message: err.message });
     }
 }
 
@@ -33,8 +33,8 @@ export const getUserFriends = async (req, res) => {
         req.status(200).json(formattedFriends);
 
     }
-    catch (error) {
-        res.status(404).json({ message: error.message })
+    catch (err) {
+        res.status(404).json({message: err.message })
     }
 };
 
@@ -57,8 +57,19 @@ export const addRemoveFriend = async (req, res) => {
         await user.save();
         await friend.save();
 
-    }
-    catch (error) {
+        const friends = await Promise.all(
+            user.friends.map((id) => User.findbyId(id))
+        );
 
+        const formattedFriends = friends.map(
+            ({ _id, firstName, lastName, occupation, location, picturePath }) => {
+                return { _id, firstName, lastName, occupation, location, picturePath };
+            }
+        );
+        res.status(200).json(formattedFriends);
+
+    }
+    catch (err) {
+        res.status(404).json({ message: err.message })
     }
 }

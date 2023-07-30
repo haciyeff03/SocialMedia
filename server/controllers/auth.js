@@ -1,6 +1,6 @@
-import bcrypt from "bcrypt";
-import jwt from "jsonwebtoken";
-import User from "../models/User.js"
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+const User = require('../models/User.js');
 
 /* Register User */
 export const register = async (req,res) => {
@@ -37,9 +37,9 @@ export const register = async (req,res) => {
 }
 
 
-    catch(error)
+    catch(err)
     {
-        res.status(500).json({error:error.message})
+        res.status(500).json({ message: err.message  })
     }
 };
 
@@ -59,9 +59,9 @@ export const login=async(req,res) => {
 
     }
 
-    catch {
+    catch (err) {
         {
-            res.status(500).json({error:error.message})
+            res.status(500).json({ message: err.message })
         }
     }
 }
