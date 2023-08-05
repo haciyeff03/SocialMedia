@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from "mongoose";
 
 const postSchema = mongoose.Schema(
     {
@@ -20,17 +20,16 @@ const postSchema = mongoose.Schema(
         userPicturePath: String,
         likes: {
             type: Map,
-            of: Boolean
+            of: Boolean,
         },
         comments: {
-            types: Array,
+            type: Array,
             default: [],
-        }
+        },
     },
-    {timestamps:true}
+    { timestamps: true }
 );
 
-
-const Post=mongoose.model("Post",postSchema);
+const Post = mongoose.model("Post", postSchema);
 
 export default Post;
