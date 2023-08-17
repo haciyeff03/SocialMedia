@@ -15,13 +15,13 @@ import{
   PURGE,
   REGISTER
 } from "redux-persist";
-import { Storage } from 'redux-persist/lib/storage';
-import { PersistGate } from 'redux-persist/integration/react';
-import { curryGetDefaultMiddleware } from '@reduxjs/toolkit/dist/getDefaultMiddleware';
+import storage from "redux-persist/lib/storage";
+import { PersistGate } from "redux-persist/integration/react";
+
 
 const persistConfig= {key: "root", storage , version:1};
 const persistedReducer=persistReducer(persistConfig,authReducer);
-const storage=configureStore({
+const store = configureStore({
   reducer:persistedReducer,
   middleware:(getDefaultMiddleware)=>
   getDefaultMiddleware({
@@ -32,15 +32,15 @@ const storage=configureStore({
         PERSIST,
         PURGE,
         REGISTER]
-    }
-  })
-})
+    },
+    }),
+});
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Provider store={storage}>
-      <PersistGate loading={null} persistor={persistStore(storage)}>
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistStore(store)}>
       <App />
       </PersistGate>
     </Provider>
