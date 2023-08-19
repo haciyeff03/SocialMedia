@@ -1,6 +1,7 @@
 import { BrowserRouter, Navigate, Routes, Route } from "react-router-dom";
 import Home from "./Pages/Home/Home";
 import Login from "./Pages/Login/Login";
+import Navbar from "./Layout/Navbar/Navbar"
 import Profile from "./Pages/Profile/Profile";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.js';
@@ -17,9 +18,13 @@ function App() {
       <BrowserRouter>
       <ThemeProvider theme={theme}>
         <Routes>
+       
+        <Route path='/navbar' element={<Navbar />} />
           <Route path='/' element={<Login />} />
+         
           <Route path="/home" element={<Home />} />
           <Route path="/profile/:userId" element={<Profile />} />
+          
         </Routes>   
       </ThemeProvider>
       </BrowserRouter>
