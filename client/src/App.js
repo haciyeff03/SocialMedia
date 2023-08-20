@@ -1,10 +1,7 @@
 import { BrowserRouter, Navigate, Routes, Route } from "react-router-dom";
 import Home from "./Pages/Home/Home";
 import Login from "./Pages/Login/Login";
-import Navbar from "./Layout/Navbar/Navbar"
 import Profile from "./Pages/Profile/Profile";
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.bundle.js';
 import { useMemo } from "react";
 import { UseSelector, useSelector } from "react-redux";
 import { CssBaseline, ThemeProvider } from "@mui/material";
@@ -13,13 +10,14 @@ import { themeSettings } from "./theme";
 function App() {
   const mode = useSelector((state) => state.mode)
   const theme= useMemo(()=> createTheme(themeSettings(mode)), [ mode ]);
+  const isAuth = Boolean(useSelector((state) => state.token));
   return (
     <div className="App">
       <BrowserRouter>
       <ThemeProvider theme={theme}>
         <Routes>
        
-        <Route path='/navbar' element={<Navbar />} />
+       
           <Route path='/' element={<Login />} />
          
           <Route path="/home" element={<Home />} />

@@ -1,8 +1,12 @@
 import React from 'react'
 import "./home.scss"
+import Navbar from "../../Layout/Navbar/Navbar"
+import { Box } from '@mui/material'
 const Home = () => {
   return (
-    <div>Home</div>
+    <Box>
+      <Navbar/>
+      </Box>
   )
 }
 
