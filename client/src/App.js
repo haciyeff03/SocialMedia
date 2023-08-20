@@ -9,22 +9,22 @@ import { createTheme } from "@mui/material/styles";
 import { themeSettings } from "./theme";
 function App() {
   const mode = useSelector((state) => state.mode)
-  const theme= useMemo(()=> createTheme(themeSettings(mode)), [ mode ]);
+  const theme = useMemo(() => createTheme(themeSettings(mode)), [mode]);
   const isAuth = Boolean(useSelector((state) => state.token));
   return (
     <div className="App">
       <BrowserRouter>
-      <ThemeProvider theme={theme}>
-        <Routes>
-       
-       
-          <Route path='/' element={<Login />} />
-         
-          <Route path="/home" element={<Home />} />
-          <Route path="/profile/:userId" element={<Profile />} />
-          
-        </Routes>   
-      </ThemeProvider>
+        <ThemeProvider theme={theme}>
+          <Routes>
+
+
+            <Route path='/' element={<Login />} />
+
+            <Route path="/home" element={<Home />} />
+            <Route path="/profile/:userId" element={<Profile />} />
+
+          </Routes>
+        </ThemeProvider>
       </BrowserRouter>
 
     </div>
