@@ -1,5 +1,5 @@
 import React from 'react';
-import Form from "../Form/Form"
+import Form from "./Form";
 import {
   Box,
   Typography,
@@ -16,7 +16,7 @@ const Login = () => {
        textAlign="center"> 
       <Typography
           fontWeight="bold"
-          fontSize="40px"
+          fontSize="44px"
           color="primary"
          
         >
@@ -29,10 +29,10 @@ const Login = () => {
       margin="2rem auto"
       borderRadius="1.5rem"
       backgroundColor={theme.palette.background.alt}>
-        <Typography fontWeight="500" variant='h4' sx={{mb:".15ren"}}>
+        <Typography fontWeight="500" variant='h3' sx={{mb:"1.2rem"}}>
           Welcome to Social Media!
         </Typography>
-        <Form/>
+       <Form/>
       </Box>
       </Box>
   )
