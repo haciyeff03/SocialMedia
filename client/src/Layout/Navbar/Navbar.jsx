@@ -24,6 +24,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setMode, setLogout } from "state";
 import { useNavigate } from "react-router-dom";
 import FlexBetween from "../../components/FlexBetween/FlexBetween";
+import { light } from "@mui/material/styles/createPalette";
 
 const Navbar = () => {
   const [isMobileMenuToggled, setIsMobileMenuToggled] = useState(false);
@@ -83,9 +84,9 @@ const Navbar = () => {
               <LightMode sx={{ color: dark, fontSize: "25px" }} />
             )}
           </IconButton>
-          <Message sx={{ fontSize: "25px" }} />
-          <Notifications sx={{ fontSize: "25px" }} />
-          <Help sx={{ fontSize: "25px" }} />
+          <Message sx={{color: dark,  fontSize: "25px" }} />
+          <Notifications sx={{ color: dark,fontSize: "25px" }} />
+          <Help sx={{ color: dark,fontSize: "25px" }} />
           <FormControl variant="standard" value={fullName}>
             <Select
               value={fullName}

@@ -56,8 +56,9 @@ import {
           gap="0.5rem"
           pb="1.1rem"
           onClick={() => navigate(`/profile/${userId}`)}
+        
         >
-          <FlexBetween gap="1rem">
+          <FlexBetween gap="1rem" >
             <UserImage image={picturePath} />
             <Box>
               <Typography
@@ -76,7 +77,7 @@ import {
               <Typography color={medium}>{friends.length} friends</Typography>
             </Box>
           </FlexBetween>
-          <ManageAccountsOutlined />
+          <ManageAccountsOutlined sx={{color:dark}}/>
         </FlexBetween>
   
         <Divider />
