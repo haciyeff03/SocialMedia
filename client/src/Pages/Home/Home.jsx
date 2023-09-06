@@ -4,19 +4,22 @@ import { Box, useMediaQuery } from '@mui/material';
 import { useSelector } from 'react-redux';
 import UserWidget from '../Widgets/UserWidget';
 import MyPostWidget from "../Widgets/MyPostWidget"
+import { useTheme } from '@emotion/react';
 const Home = () => {
   const isNonMobileScreens = useMediaQuery("(min-width:1080px)");
   const { _id, picturePath } = useSelector((state) => state.user)
-  
+  const {palette}=useTheme();
   return (
     <Box>
       <Navbar />
       <Box
-        width="100%"
+       
+        
         padding="2rem 6%"
         display={isNonMobileScreens ? "flex" : "block"}
         gap="0.5rem"
         justifyContent="space-between"
+        sx={{backgroundColor:palette.neutral.light}}
       >
         <Box flexBasis={isNonMobileScreens ? "26%" : undefined}>
           <UserWidget userId={_id} picturePath={picturePath} />
