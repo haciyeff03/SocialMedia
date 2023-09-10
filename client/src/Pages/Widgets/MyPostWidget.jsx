@@ -167,6 +167,7 @@ const MyPostWidget=({picturePath})=> {
             >
               POST
             </Button>
+           
           </FlexBetween>
         </WidgetWrapper>
       );
