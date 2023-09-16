@@ -11,6 +11,11 @@
     "mongoose": "^7.3.2",
     "morgan": "^1.10.0",
     "multer-gridfs-storage": "^5.0.2"
+
+  },
+  "engines": {
+    "npm": ">=8.0.0 <9.0.0",
+    "node": ">=16.0.0"
   },
   "name": "server",
   "version": "1.0.0",
