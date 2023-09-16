@@ -14,8 +14,7 @@
 
   },
   "engines": {
-    "npm": ">=8.0.0 <9.0.0",
-    "node": ">=16.0.0"
+    "node": "18.x"
   },
   "name": "server",
   "version": "1.0.0",
@@ -23,6 +22,7 @@
   "type":"module",
   "devDependencies": {},
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
